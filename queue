@@ -3,12 +3,10 @@ class node:
     def __init__(self, data):
         self.data = data
         self.next = None
-
 class queue:
     def __init__(self):
         self.front = None
         self.rear = None
-
     def enqueue(self, data):
         new = node(data)
         if self.rear is None:
@@ -16,7 +14,6 @@ class queue:
         else:
             self.rear.next = new
             self.rear = new
-
     def dequeue(self):
         if self.front is None:
             print("Queue underflow")
@@ -25,48 +22,36 @@ class queue:
             self.front = self.front.next
             if self.front is None:
                 self.rear = None
-
     def peek(self):
         if self.front is None:
             print("Queue is empty")
         else:
             print("Front:", self.front.data)
-
     def display(self):
         temp = self.front
         while temp:
             print(temp.data, end="->")
             temp = temp.next
         print("None")
-
-
 q = queue()
-
 while True:
     print("\n1. Enqueue")
     print("2. Dequeue")
     print("3. Peek")
     print("4. Display")
     print("5. Exit")
-
     choice = int(input("Enter your choice: "))
-
     if choice == 1:
         data = int(input("Enter data: "))
         q.enqueue(data)
-
     elif choice == 2:
         q.dequeue()
-
     elif choice == 3:
         q.peek()
-
     elif choice == 4:
         q.display()
-
     elif choice == 5:
         print("Program ended")
         break
-
     else:
         print("Invalid choice")
